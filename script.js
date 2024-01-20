@@ -1,9 +1,15 @@
-let playerScore = 0;
-let computerScore = 0;
-
-
 //options for player and computer
 const choice = ["rock", "paper", "scissors"]
+
+//display scores
+let playerScore = 0;
+let computerScore = 0;
+const gameScore = (playerScore + " - " + computerScore)
+console.log(gameScore)
+
+
+
+
 
 
 // random selection of 3 choices for player
@@ -16,18 +22,21 @@ function getComputerChoice() {
     return choice[(Math.floor(Math.random() * choice.length))];
 }
 
-function game(){
-    
+// function game(){
+
    
-}
+    
+// }
+
+
 // all possible plays and their results message
 function playRound(playerSelection, computerSelection) {
-   playerSelection = getPlayerChoice();
-   computerSelection = getComputerChoice();
-  
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
     
+
     if (playerSelection === "rock" && computerSelection === "rock") {
-         return "It's a draw";
+        return "It's a draw";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         return "You win! Rock beats scissors";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -45,9 +54,24 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         return "You win! Scissors beats paper";
     }
+
+
 }
 
 
-const result = playRound();
-console.log(result);
+
+const roundResult = playRound();
+console.log(roundResult);
+
+// function addPoint() {
+//     if (roundResult === "You win! Paper beats Rock" || "You win! Rock beats scissors" || "You win! Scissors beats paper") {
+//         playerScore += playerScore + 1;
+//     }
+// }
+// addPoint();
+
+
+
+
+
 
