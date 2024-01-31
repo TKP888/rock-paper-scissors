@@ -6,6 +6,7 @@ const scissors = document.querySelector('#scissors');
 const text = document.querySelector("#text");
 const playerScoreText = document.querySelector("#playerScore");
 const computerScoreText = document.querySelector("#computerScore");
+const reset = document.querySelector('#reset')
 
 let playerScore = 0;
 let computerScore = 0;
@@ -23,6 +24,10 @@ scissors.onclick = function() {
     playRound("scissors");
 };
 
+reset.onclick = function() {
+    restart();
+};
+
 
 function restart() {
     playerScore = 0;
@@ -33,12 +38,13 @@ function restart() {
     rock.innerText = "Rock";
     paper.innerText = "Paper";
     scissors.innerText = "Scissors";
-    rock.addEventListener('click', function() {
-        playRound("rock")});
-    paper.addEventListener('click', function() {
-        playRound("paper")});
-    scissors.addEventListener('click', function() {
-        playRound("scissors")});
+    
+    // rock.addEventListener('click', function() {
+    //     playRound("rock")});
+    // paper.addEventListener('click', function() {
+    //     playRound("paper")});
+    // scissors.addEventListener('click', function() {
+    //     playRound("scissors")});
 }
 
 
@@ -76,13 +82,13 @@ function playRound(playerSelection) {
         rock.innerText = "Restart";
         paper.innerText = "Restart";
         scissors.innerText = "Restart";
-        rock.addEventListener('click', function() {
-            restart()});
+        // rock.addEventListener('click', function() {
+        //     restart()});
 
-            paper.addEventListener('click', function() {
-                restart()});
-                scissors.addEventListener('click', function() {
-                    restart()});
+        //     paper.addEventListener('click', function() {
+        //         restart()});
+        //         scissors.addEventListener('click', function() {
+        //             restart()});
 
 
         } else {
@@ -90,12 +96,12 @@ function playRound(playerSelection) {
         rock.innerText = "Restart";
         paper.innerText = "Restart";
         scissors.innerText = "Restart";
-        rock.addEventListener('click', function() {
-            restart()});
-            paper.addEventListener('click', function() {
-                restart()});
-                scissors.addEventListener('click', function() {
-                    restart()});
+        // rock.addEventListener('click', function() {
+        //     restart()});
+        //     paper.addEventListener('click', function() {
+        //         restart()});
+        //         scissors.addEventListener('click', function() {
+        //             restart()});
 
     }
 }
