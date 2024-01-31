@@ -1,5 +1,4 @@
-//options for player and computer
-const choice = ["rock", "paper", "scissors"]
+const choice = ["rock", "paper", "scissors"];
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
@@ -8,14 +7,8 @@ const text = document.querySelector("#text");
 const playerScoreText = document.querySelector("#playerScore");
 const computerScoreText = document.querySelector("#computerScore");
 
-//display scores
 let playerScore = 0;
 let computerScore = 0;
-
-
-
-
-
 
 
 rock.onclick = function() {
@@ -31,18 +24,23 @@ scissors.onclick = function() {
 };
 
 
-
-
-
-// //displays and updates score
-// function updateGameScore() {
-//     gameScore = `${playerScore} - ${computerScore}`;
-//     console.log(gameScore);
-// }
-
-function playerChoice()  {
-    const choices = ['rock', 'paper', 'scissors'];
+function restart() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreText.innerText = playerScore;
+    computerScoreText.innerText = computerScore;
+    text.innerText = "Welcome to Rock, Paper, Scissors. Here you will play head-to-head against the computer";
+    rock.innerText = "Rock";
+    paper.innerText = "Paper";
+    scissors.innerText = "Scissors";
+    rock.addEventListener('click', function() {
+        playRound("rock")});
+    paper.addEventListener('click', function() {
+        playRound("paper")});
+    scissors.addEventListener('click', function() {
+        playRound("scissors")});
 }
+
 
 // computer to randomly select one of the 3 choice options
 function getComputerChoice() {
@@ -64,24 +62,45 @@ function playRound(playerSelection) {
     ) {
         text.innerText = `You win! ${playerSelection} beats ${computerSelection}`;
         playerScore += 1;
-        playerScoreText.innerText += playerScore;
+        playerScoreText.innerText = playerScore;
     } else {
         text.innerText = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerScore += 1;
-        computerScoreText.innerText += computerScore;
+        computerScoreText.innerText = computerScore;
     }
-// // adds points based on result of round
-// function scoring(roundResult) {
-//     if (roundResult === "You win! Rock beats scissors" || 
-//     roundResult === "You win! Paper beats Rock" || 
-//     roundResult === "You win! Scissors beats paper") {
-//     playerScore += 1;
-//     } else if (roundResult === "You lose! Paper beats Rock" ||
-//     roundResult === "You lose! Scissors beats paper" ||
-//     roundResult === "You lose! Rock beats scissors") {
-//     computerScore += 1;
-//     } else {
 
-//     }
-// }
+    // when player or computer reaches score limit, displays message of win or lose
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore === 5){        
+        text.innerText = "You win. Play again?";
+        rock.innerText = "Restart";
+        paper.innerText = "Restart";
+        scissors.innerText = "Restart";
+        rock.addEventListener('click', function() {
+            restart()});
+
+            paper.addEventListener('click', function() {
+                restart()});
+                scissors.addEventListener('click', function() {
+                    restart()});
+
+
+        } else {
+        text.innerText = "You lose. Play again?"
+        rock.innerText = "Restart";
+        paper.innerText = "Restart";
+        scissors.innerText = "Restart";
+        rock.addEventListener('click', function() {
+            restart()});
+            paper.addEventListener('click', function() {
+                restart()});
+                scissors.addEventListener('click', function() {
+                    restart()});
+
+    }
 }
+}
+
+
+
+
