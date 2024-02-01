@@ -12,17 +12,25 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-rock.onclick = function() {
-    playRound("rock");
-};
+rock.addEventListener("click", () => {
+    if (playerScore < 5 && computerScore < 5){
+        playRound("rock")
+    }
+ });
 
-paper.onclick = function() {
-    playRound("paper");
-};
 
-scissors.onclick = function() {
-    playRound("scissors");
-};
+
+ paper.addEventListener("click", () => {
+    if (playerScore < 5 && computerScore < 5){
+        playRound("paper")
+    }
+ });
+
+ scissors.addEventListener("click", () => {
+    if (playerScore < 5 && computerScore < 5){
+        playRound("scissors")
+    }
+ });
 
 reset.onclick = function() {
     restart();
@@ -39,12 +47,7 @@ function restart() {
     paper.innerText = "Paper";
     scissors.innerText = "Scissors";
     
-    // rock.addEventListener('click', function() {
-    //     playRound("rock")});
-    // paper.addEventListener('click', function() {
-    //     playRound("paper")});
-    // scissors.addEventListener('click', function() {
-    //     playRound("scissors")});
+
 }
 
 
@@ -77,31 +80,12 @@ function playRound(playerSelection) {
 
     // when player or computer reaches score limit, displays message of win or lose
     if (playerScore === 5 || computerScore === 5) {
-        if (playerScore === 5){        
+        if (playerScore === 5){
         text.innerText = "You win. Play again?";
-        rock.innerText = "Restart";
-        paper.innerText = "Restart";
-        scissors.innerText = "Restart";
-        // rock.addEventListener('click', function() {
-        //     restart()});
-
-        //     paper.addEventListener('click', function() {
-        //         restart()});
-        //         scissors.addEventListener('click', function() {
-        //             restart()});
-
-
+   
         } else {
         text.innerText = "You lose. Play again?"
-        rock.innerText = "Restart";
-        paper.innerText = "Restart";
-        scissors.innerText = "Restart";
-        // rock.addEventListener('click', function() {
-        //     restart()});
-        //     paper.addEventListener('click', function() {
-        //         restart()});
-        //         scissors.addEventListener('click', function() {
-        //             restart()});
+
 
     }
 }
